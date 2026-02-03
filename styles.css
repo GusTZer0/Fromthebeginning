@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #556B2F; /* Fundo de cor sólida (sem GIF) */
+    background-color: #2E1A47; /* Fundo de cor sólida (sem GIF) */
     
     color: #ffffff;
     margin: 0;
@@ -22,7 +22,7 @@ body {
 }
 
 .container {
-    background: #4B5320;
+    background: #1F102E;
     padding: 40px 60px;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); 
@@ -249,4 +249,5 @@ body {
     }
 
 }
+
 
