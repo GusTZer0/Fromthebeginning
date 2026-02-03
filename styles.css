@@ -22,7 +22,7 @@ body {
 }
 
 .container {
-    background: #5D3FD3;
+    background: #4B5320;
     padding: 40px 60px;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); 
@@ -247,4 +247,5 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
