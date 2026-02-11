@@ -47,17 +47,12 @@ function updateCounter() {
     ).getDate();
     days += lastMonthDays;
   }
-
-  // Ajusta meses negativos de novo
   if (months < 0) {
     years--;
     months += 12;
   }
-
-  // --- FORMATAÇÃO (sempre 2 dígitos) ---
   const formatNumber = (num) => (num < 10 ? "0" + num : num);
-
-  // --- ATUALIZAÇÃO NO HTML ---
+  
   document.getElementById("years").innerText = formatNumber(years);
   document.getElementById("months").innerText = formatNumber(months);
   document.getElementById("days").innerText = formatNumber(days);
@@ -65,10 +60,6 @@ function updateCounter() {
   document.getElementById("minutes").innerText = formatNumber(minutes);
   document.getElementById("seconds").innerText = formatNumber(seconds);
 }
-
-// Inicia ao carregar
 updateCounter();
 
-// Atualiza a cada 1 segundo
 setInterval(updateCounter, 1000);
-
