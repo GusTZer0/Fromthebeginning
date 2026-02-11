@@ -2,6 +2,12 @@ const START_DATE = new Date(2025, 0, 27);
 
 function updateCounter() {
   const now = new Date();
+  let diff = now - START_DATE;
+
+  const msSecond = 1000;
+  const msMinute = msSecond * 60;
+  const msHour = msMinute * 60;
+  const msDay = msHour * 24;
 
   let years = now.getFullYear() - START_DATE.getFullYear();
   let months = now.getMonth() - START_DATE.getMonth();
@@ -9,12 +15,7 @@ function updateCounter() {
 
   if (days < 0) {
     months--;
-    const lastMonthDays = new Date(
-      now.getFullYear(),
-      now.getMonth(),
-      0
-    ).getDate();
-    days += lastMonthDays;
+    days += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
   }
 
   if (months < 0) {
@@ -22,45 +23,22 @@ function updateCounter() {
     months += 12;
   }
 
-  let hours = now.getHours() - START_DATE.getHours();
-  let minutes = now.getMinutes() - START_DATE.getMinutes();
-  let seconds = now.getSeconds() - START_DATE.getSeconds();
+  const totalDays = Math.floor(diff / msDay);
+  const restTime = diff - totalDays * msDay;
 
-  if (seconds < 0) {
-    minutes--;
-    seconds += 60;
-  }
-  if (minutes < 0) {
-    hours--;
-    minutes += 60;
-  }
-  if (hours < 0) {
-    days--;
-    hours += 24;
-  }
-  if (days < 0) {
-    months--;
-    const lastMonthDays = new Date(
-      now.getFullYear(),
-      now.getMonth(),
-      0
-    ).getDate();
-    days += lastMonthDays;
-  }
-  if (months < 0) {
-    years--;
-    months += 12;
-  }
-  const formatNumber = (num) => (num < 10 ? "0" + num : num);
-  
-  document.getElementById("years").innerText = formatNumber(years);
-  document.getElementById("months").innerText = formatNumber(months);
-  document.getElementById("days").innerText = formatNumber(days);
-  document.getElementById("hours").innerText = formatNumber(hours);
-  document.getElementById("minutes").innerText = formatNumber(minutes);
-  document.getElementById("seconds").innerText = formatNumber(seconds);
+  const hours = Math.floor(restTime / msHour);
+  const minutes = Math.floor((restTime % msHour) / msMinute);
+  const seconds = Math.floor((restTime % msMinute) / msSecond);
+
+  const format = (n) => (n < 10 ? "0" + n : n);
+
+  document.getElementById("years").innerText = format(years);
+  document.getElementById("months").innerText = format(months);
+  document.getElementById("days").innerText = format(days);
+  document.getElementById("hours").innerText = format(hours);
+  document.getElementById("minutes").innerText = format(minutes);
+  document.getElementById("seconds").innerText = format(seconds);
 }
+
 updateCounter();
-
 setInterval(updateCounter, 1000);
-
