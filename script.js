@@ -1,7 +1,7 @@
 // =========================================================
 // !!! 🚨 ATENÇÃO: MUDAR ESTA DATA !!!
 // Coloque a data do seu relacionamento no formato: 'Ano/Mês/Dia'
-const START_DATE = new Date('2025/01/01'); 
+const START_DATE = new Date('2025/01/27'); 
 // =========================================================
 
 function updateCounter() {
@@ -59,3 +59,4 @@ updateCounter();
 // Atualiza a contagem a cada 1000 milissegundos (1 segundo)
 
 setInterval(updateCounter, 1000);
+
