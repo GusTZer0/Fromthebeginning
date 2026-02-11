@@ -1,4 +1,4 @@
-const START_DATE = new Date("2025/01/27");
+const START_DATE = new Date(2025, 0, 27);
 
 function updateCounter() {
   const now = new Date();
@@ -63,3 +63,4 @@ function updateCounter() {
 updateCounter();
 
 setInterval(updateCounter, 1000);
+
